@@ -12,6 +12,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      imports: ['vue']
     }),
     Components({
       resolvers: [ElementPlusResolver()],
@@ -20,6 +21,16 @@ export default defineConfig({
       enableAutoExpose: true
     })
   ],
+  // scss全局变量的配置
+  css: {
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/assets/style/primary.scss";'
+      }
+    }
+  },
+
   server: {
     host: 'localhost',
     port: 8089,
